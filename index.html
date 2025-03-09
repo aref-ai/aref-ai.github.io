@@ -378,7 +378,7 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form id="contactForm" action="mailto:contact@aref.ai" method="GET" enctype="text/plain">
+                    <div id="contactForm">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" required>
@@ -395,10 +395,13 @@
                             <label for="message">Message</label>
                             <textarea id="message" name="message" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="btn-primary">Send Message</button>
-                    </form>
-                    <div id="formMessage" class="form-message" style="display: none;">
-                        <p>This will open your default email client with a pre-filled message. If you prefer, you can also email us directly at <a href="mailto:contact@aref.ai">contact@aref.ai</a>.</p>
+                        <button type="button" id="submitButton" class="btn-primary">Send Message</button>
+                    </div>
+                    <div id="formSuccess" class="form-message success-message" style="display: none;">
+                        <p>Thank you for your message! We'll get back to you as soon as possible.</p>
+                    </div>
+                    <div id="contactInfo" class="form-message" style="margin-top: 2rem;">
+                        <p>You can also reach us directly at <a href="mailto:contact@aref.ai">contact@aref.ai</a></p>
                     </div>
                 </div>
             </div>
@@ -492,27 +495,46 @@
         });
 
         // Contact form handling
+        const submitButton = document.getElementById('submitButton');
         const contactForm = document.getElementById('contactForm');
-        const formMessage = document.getElementById('formMessage');
+        const formSuccess = document.getElementById('formSuccess');
         
-        if (contactForm) {
-            contactForm.addEventListener('submit', function(e) {
-                // Show the info message
-                formMessage.style.display = 'block';
+        if (submitButton) {
+            submitButton.addEventListener('click', function() {
+                // Basic form validation
+                const name = document.getElementById('name');
+                const email = document.getElementById('email');
+                const subject = document.getElementById('subject');
+                const message = document.getElementById('message');
                 
-                // Format the body of the email
-                const name = document.getElementById('name').value;
-                const email = document.getElementById('email').value;
-                const subject = document.getElementById('subject').value;
-                const message = document.getElementById('message').value;
+                if (!name.value || !email.value || !subject.value || !message.value) {
+                    alert('Please fill in all fields');
+                    return;
+                }
                 
-                // Update form action to include subject
-                this.action = `mailto:contact@aref.ai?subject=${encodeURIComponent(subject)}`;
+                if (!isValidEmail(email.value)) {
+                    alert('Please enter a valid email address');
+                    return;
+                }
                 
-                // Create body with proper formatting
-                const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0A${message}`;
-                this.action += `&body=${encodeURIComponent(body)}`;
+                // Show success message and hide form
+                contactForm.style.display = 'none';
+                formSuccess.style.display = 'block';
+                
+                // Create a mailto link
+                const mailtoSubject = encodeURIComponent(subject.value);
+                const mailtoBody = encodeURIComponent(`Name: ${name.value}\nEmail: ${email.value}\n\n${message.value}`);
+                const mailtoLink = `mailto:contact@aref.ai?subject=${mailtoSubject}&body=${mailtoBody}`;
+                
+                // Open the email client
+                window.location.href = mailtoLink;
             });
+        }
+        
+        // Email validation function
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
         }
     </script>
 </body>

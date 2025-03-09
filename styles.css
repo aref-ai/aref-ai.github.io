@@ -628,6 +628,11 @@ section:nth-child(even) {
     line-height: 1.5;
 }
 
+.success-message {
+    background-color: rgba(16, 185, 129, 0.1);
+    border-left: 3px solid rgb(16, 185, 129);
+}
+
 .form-message a {
     font-weight: var(--font-medium);
 }
