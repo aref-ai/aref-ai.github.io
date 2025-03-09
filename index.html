@@ -378,8 +378,7 @@
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form name="contact" method="POST" action="/thank-you.html" data-netlify="true">
-                        <input type="hidden" name="form-name" value="contact" />
+                    <form id="contactForm" action="mailto:contact@aref.ai" method="GET" enctype="text/plain">
                         <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" required>
@@ -398,6 +397,9 @@
                         </div>
                         <button type="submit" class="btn-primary">Send Message</button>
                     </form>
+                    <div id="formMessage" class="form-message" style="display: none;">
+                        <p>This will open your default email client with a pre-filled message. If you prefer, you can also email us directly at <a href="mailto:contact@aref.ai">contact@aref.ai</a>.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -488,6 +490,30 @@
                 header.classList.remove('scrolled');
             }
         });
+
+        // Contact form handling
+        const contactForm = document.getElementById('contactForm');
+        const formMessage = document.getElementById('formMessage');
+        
+        if (contactForm) {
+            contactForm.addEventListener('submit', function(e) {
+                // Show the info message
+                formMessage.style.display = 'block';
+                
+                // Format the body of the email
+                const name = document.getElementById('name').value;
+                const email = document.getElementById('email').value;
+                const subject = document.getElementById('subject').value;
+                const message = document.getElementById('message').value;
+                
+                // Update form action to include subject
+                this.action = `mailto:contact@aref.ai?subject=${encodeURIComponent(subject)}`;
+                
+                // Create body with proper formatting
+                const body = `Name: ${name}%0D%0AEmail: ${email}%0D%0A%0D%0A${message}`;
+                this.action += `&body=${encodeURIComponent(body)}`;
+            });
+        }
     </script>
 </body>
 </html>

@@ -618,6 +618,20 @@ section:nth-child(even) {
     gap: 1.5rem;
 }
 
+.form-message {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: rgba(59, 130, 246, 0.1);
+    border-radius: 4px;
+    color: var(--text-color);
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.form-message a {
+    font-weight: var(--font-medium);
+}
+
 .contact-item {
     display: flex;
     align-items: flex-start;
