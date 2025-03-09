@@ -152,6 +152,8 @@ nav ul li a {
     white-space: nowrap;
     padding: 0.5rem 0;
     text-align: center;
+    display: inline-block;
+    min-width: 5rem;
 }
 
 nav ul li a:hover {
@@ -170,6 +172,23 @@ nav ul li a:hover {
     min-width: 2.5rem;
     border-radius: 4px;
     transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+/* Specific width adjustments for Turkish menu */
+html[lang="tr"] nav ul {
+    gap: 1.2rem;
+}
+
+html[lang="tr"] nav ul li a[href="#about"],
+html[lang="tr"] nav ul li a[href="#philosophy"],
+html[lang="tr"] nav ul li a[href="#research"],
+html[lang="tr"] nav ul li a[href="#values"],
+html[lang="tr"] nav ul li a[href="#team"] {
+    min-width: 6rem;
+}
+
+html[lang="tr"] nav ul li a[href="#sponsorship"] {
+    min-width: 7rem;
 }
 
 .lang-switch:hover {
@@ -195,7 +214,7 @@ nav ul li a.btn-primary {
     justify-content: center;
     height: 2.25rem;
     padding: 0 1.2rem;
-    min-width: 6rem;
+    min-width: 7rem;
     text-align: center;
     font-size: 0.95rem;
 }
@@ -948,6 +967,11 @@ footer {
         width: 100%;
         text-align: left;
         padding: 0.5rem 0;
+        min-width: unset;
+    }
+    
+    html[lang="tr"] nav ul li a {
+        min-width: unset;
     }
     
     nav ul li a.btn-primary,
