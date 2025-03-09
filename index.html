@@ -10,6 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <!-- EmailJS Library -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
     <header>
@@ -500,6 +502,12 @@
         const contactForm = document.getElementById('contactForm');
         const formSuccess = document.getElementById('formSuccess');
         
+        // Initialize EmailJS
+        (function() {
+            // Replace with your actual EmailJS public key
+            emailjs.init("DRJh7vjeJ0UMUSkvR");
+        })();
+        
         if (submitButton) {
             submitButton.addEventListener('click', function() {
                 // Basic form validation
@@ -518,17 +526,35 @@
                     return;
                 }
                 
-                // Show success message and hide form
-                contactForm.style.display = 'none';
-                formSuccess.style.display = 'block';
+                // Show loading state
+                submitButton.disabled = true;
+                submitButton.textContent = 'Sending...';
                 
-                // Create a mailto link
-                const mailtoSubject = encodeURIComponent(subject.value);
-                const mailtoBody = encodeURIComponent(`Name: ${name.value}\nEmail: ${email.value}\n\n${message.value}`);
-                const mailtoLink = `mailto:contact@aref.ai?subject=${mailtoSubject}&body=${mailtoBody}`;
+                // Prepare template parameters
+                const templateParams = {
+                    from_name: name.value,
+                    from_email: email.value,
+                    subject: subject.value,
+                    message: message.value
+                };
                 
-                // Open the email client
-                window.location.href = mailtoLink;
+                // Send email using EmailJS
+                // Replace with your actual service ID and template ID
+                emailjs.send('service_g0b383a', 'template_bfedwcv', templateParams)
+                    .then(function(response) {
+                        console.log('SUCCESS!', response.status, response.text);
+                        
+                        // Show success message and hide form
+                        contactForm.style.display = 'none';
+                        formSuccess.style.display = 'block';
+                    }, function(error) {
+                        console.log('FAILED...', error);
+                        alert('Failed to send email. Please try again later.');
+                        
+                        // Reset button state
+                        submitButton.disabled = false;
+                        submitButton.textContent = 'Send Message';
+                    });
             });
         }
         
