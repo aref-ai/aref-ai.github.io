@@ -805,6 +805,36 @@ footer {
     height: 2rem;
 }
 
+/* Thank You Page */
+.thank-you-section {
+    padding: 10rem 0 5rem;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+}
+
+.thank-you-content {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.thank-you-content h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--primary-color);
+}
+
+.thank-you-content p {
+    font-size: 1.125rem;
+    margin-bottom: 2rem;
+    color: var(--light-text);
+}
+
+.thank-you-content .btn-primary {
+    margin-top: 1rem;
+}
+
 /* Media Queries */
 @media (max-width: 992px) {
     .contact-grid,
