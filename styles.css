@@ -135,7 +135,13 @@ header {
 
 nav ul {
     display: flex;
-    gap: 2rem;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+nav ul li {
+    display: flex;
+    align-items: center;
 }
 
 nav ul li a {
@@ -143,6 +149,9 @@ nav ul li a {
     font-weight: var(--font-regular);
     font-size: 0.95rem;
     transition: color 0.2s ease;
+    white-space: nowrap;
+    padding: 0.5rem 0;
+    text-align: center;
 }
 
 nav ul li a:hover {
@@ -150,11 +159,15 @@ nav ul li a:hover {
 }
 
 .lang-switch {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
     font-weight: var(--font-medium);
     color: var(--text-color);
     background-color: var(--light-bg);
-    padding: 0.25rem 0.5rem;
+    padding: 0.25rem 0.75rem;
+    height: 2rem;
+    min-width: 2.5rem;
     border-radius: 4px;
     transition: background-color 0.2s ease, color 0.2s ease;
 }
@@ -164,6 +177,7 @@ nav ul li a:hover {
     color: white;
 }
 
+/* For general buttons */
 .btn-primary {
     display: inline-block;
     padding: 0.6rem 1.2rem;
@@ -172,6 +186,16 @@ nav ul li a:hover {
     border-radius: 4px;
     font-weight: var(--font-medium);
     transition: background-color 0.2s ease;
+}
+
+/* Special styling for navbar buttons */
+nav ul li a.btn-primary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 2.25rem;
+    padding: 0 1.2rem;
+    min-width: 6rem;
     text-align: center;
     font-size: 0.95rem;
 }
@@ -911,6 +935,25 @@ footer {
     nav ul {
         flex-direction: column;
         gap: 1.5rem;
+        align-items: flex-start;
+        width: 100%;
+    }
+    
+    nav ul li {
+        width: 100%;
+    }
+    
+    nav ul li a {
+        display: block;
+        width: 100%;
+        text-align: left;
+        padding: 0.5rem 0;
+    }
+    
+    nav ul li a.btn-primary,
+    nav ul li a.lang-switch {
+        display: inline-flex;
+        margin-top: 0.5rem;
     }
     
     .mobile-menu-btn.active span:nth-child(1) {
