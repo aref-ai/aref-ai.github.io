@@ -149,6 +149,21 @@ nav ul li a:hover {
     color: var(--primary-color);
 }
 
+.lang-switch {
+    display: inline-block;
+    font-weight: var(--font-medium);
+    color: var(--text-color);
+    background-color: var(--light-bg);
+    padding: 0.25rem 0.5rem;
+    border-radius: 4px;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.lang-switch:hover {
+    background-color: var(--primary-color);
+    color: white;
+}
+
 .btn-primary {
     display: inline-block;
     padding: 0.6rem 1.2rem;
