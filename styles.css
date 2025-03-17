@@ -685,6 +685,16 @@ section:nth-child(even) {
     margin-top: 2rem;
 }
 
+.cta .btn-secondary {
+    color: white;
+    border-color: white;
+}
+
+.cta .btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
 /* Contact Section */
 .contact-grid {
     display: grid;
