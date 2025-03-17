@@ -613,51 +613,52 @@ section:nth-child(even) {
 }
 
 .initiative-slide {
-    padding: 1.5rem;
+    padding: 1.75rem;
     border-radius: 8px;
-    background-color: var(--bg-color);
+    background-color: #f8fafc;
     border: 1px solid var(--border-color);
     transition: transform 0.2s ease, box-shadow 0.2s ease;
     height: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
 }
 
 .initiative-slide:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.04);
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.08);
 }
 
 .initiative-icon {
-    width: 40px;
-    height: 40px;
+    width: 48px;
+    height: 48px;
     border-radius: 50%;
-    background-color: rgba(59, 130, 246, 0.1);
+    background-color: rgba(59, 130, 246, 0.25);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-    font-size: 1.125rem;
+    margin-bottom: 1.25rem;
+    color: #1e40af;
+    font-size: 1.25rem;
 }
 
 .initiative-slide h3 {
-    font-size: 1.125rem;
-    font-weight: var(--font-medium);
+    font-size: 1.25rem;
+    font-weight: var(--font-bold);
     margin-bottom: 0.75rem;
-    color: var(--text-color);
+    color: #1f2937;
 }
 
 .initiative-slide p {
-    color: var(--light-text);
-    font-size: 0.95rem;
+    color: #374151;
+    font-size: 1rem;
     margin-bottom: 0;
+    line-height: 1.6;
 }
 
 /* CTA Section */
 .cta {
     padding: 5rem 0;
-    background-color: #1a365d;
+    background-color: var(--light-bg);
     text-align: center;
-    color: white;
 }
 
 .cta-content {
@@ -667,47 +668,22 @@ section:nth-child(even) {
 
 .cta h2 {
     font-size: 1.75rem;
-    font-weight: var(--font-bold);
+    font-weight: var(--font-medium);
     margin-bottom: 1rem;
-    color: white;
+    color: var(--text-color);
 }
 
 .cta p {
     font-size: 1.125rem;
     margin-bottom: 2rem;
-    color: white;
-    line-height: 1.6;
+    color: var(--light-text);
 }
 
 .cta-content .cta-buttons {
     display: flex;
     justify-content: center;
-    gap: 1.5rem;
+    gap: 1rem;
     margin-top: 1rem;
-}
-
-.cta .btn-primary {
-    background-color: white;
-    color: #1a365d;
-    font-weight: var(--font-medium);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.cta .btn-primary:hover {
-    background-color: var(--light-bg);
-    color: #1a365d;
-}
-
-.cta .btn-secondary {
-    color: white;
-    border-color: white;
-    font-weight: var(--font-medium);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.cta .btn-secondary:hover {
-    background-color: rgba(255, 255, 255, 0.2);
-    color: white;
 }
 
 /* Contact Section */
