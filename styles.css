@@ -655,7 +655,7 @@ section:nth-child(even) {
 /* CTA Section */
 .cta {
     padding: 5rem 0;
-    background-color: var(--primary-color);
+    background-color: #1a365d;
     text-align: center;
     color: white;
 }
@@ -667,7 +667,7 @@ section:nth-child(even) {
 
 .cta h2 {
     font-size: 1.75rem;
-    font-weight: var(--font-medium);
+    font-weight: var(--font-bold);
     margin-bottom: 1rem;
     color: white;
 }
@@ -676,6 +676,7 @@ section:nth-child(even) {
     font-size: 1.125rem;
     margin-bottom: 2rem;
     color: white;
+    line-height: 1.6;
 }
 
 .cta-content .cta-buttons {
@@ -687,14 +688,14 @@ section:nth-child(even) {
 
 .cta .btn-primary {
     background-color: white;
-    color: var(--primary-color);
+    color: #1a365d;
     font-weight: var(--font-medium);
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .cta .btn-primary:hover {
     background-color: var(--light-bg);
-    color: var(--primary-color);
+    color: #1a365d;
 }
 
 .cta .btn-secondary {
