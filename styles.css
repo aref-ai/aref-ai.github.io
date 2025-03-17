@@ -655,8 +655,9 @@ section:nth-child(even) {
 /* CTA Section */
 .cta {
     padding: 5rem 0;
-    background-color: var(--light-bg);
+    background-color: var(--primary-color);
     text-align: center;
+    color: white;
 }
 
 .cta-content {
@@ -668,13 +669,20 @@ section:nth-child(even) {
     font-size: 1.75rem;
     font-weight: var(--font-medium);
     margin-bottom: 1rem;
-    color: var(--text-color);
+    color: white;
 }
 
 .cta p {
     font-size: 1.125rem;
-    margin-bottom: 2rem;
-    color: var(--light-text);
+    margin-bottom: 1rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.cta-content .cta-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
 }
 
 /* Contact Section */
@@ -1019,6 +1027,11 @@ footer {
     }
     
     .hero-buttons {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .cta-content .cta-buttons {
         flex-direction: column;
         gap: 0.75rem;
     }
