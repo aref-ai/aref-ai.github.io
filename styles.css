@@ -674,20 +674,34 @@ section:nth-child(even) {
 
 .cta p {
     font-size: 1.125rem;
-    margin-bottom: 1rem;
-    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+    color: white;
 }
 
 .cta-content .cta-buttons {
     display: flex;
     justify-content: center;
-    gap: 1rem;
-    margin-top: 2rem;
+    gap: 1.5rem;
+    margin-top: 1rem;
+}
+
+.cta .btn-primary {
+    background-color: white;
+    color: var(--primary-color);
+    font-weight: var(--font-medium);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.cta .btn-primary:hover {
+    background-color: var(--light-bg);
+    color: var(--primary-color);
 }
 
 .cta .btn-secondary {
     color: white;
     border-color: white;
+    font-weight: var(--font-medium);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .cta .btn-secondary:hover {
